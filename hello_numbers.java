@@ -1,4 +1,3 @@
-package LearnJava;
 
 /** Demonstrate Java's static typing feature */
 public class HelloNumbers {
