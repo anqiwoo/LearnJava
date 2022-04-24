@@ -15,3 +15,9 @@ public class IsPrime {
         System.out.println(isPrime(m));
     }
 }
+
+/**
+ * 1. Boolean values in Java are true and false, not True and False.
+ * 2. for (initialization; loop condition; next)
+ * 3. while (loop condition)
+ */

@@ -10,3 +10,10 @@ public class DogCondition {
         }
     }
 }
+
+/**
+ * if (condition) {
+ * } else if (condition) {
+ * } ... else {
+ * }
+ */
