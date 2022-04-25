@@ -8,8 +8,21 @@ public class LargeDemo {
         return y;
     }
 
+    public static int max(int[] m) {
+        // return the max value in an int array.
+        int maximum = m[0];
+        for (int i = 1; i < m.length; i++) {
+            if (maximum < m[i]) {
+                maximum = m[i];
+            }
+        }
+        return maximum;
+    }
+
     public static void main(String[] args) {
         System.out.println(larger(-1, 1));
+        int[] numbers = new int[] { 9, 2, 15, 2, 22, 10, 6 };
+        System.out.println(max(numbers));
     }
 }
 
@@ -22,4 +35,13 @@ public class LargeDemo {
  * 3. All parameters of a function must have a declared type, and the return
  * value of the function must have a declared type.
  * 4. Functions in Java return only one value!
+ * 5. We call the "public static int larger (int x, int y)" as the method's
+ * signature, as it lists the parameters, return types, name, and any modifiers.
+ * Here our modifiers are "public" and "static".
+ * 6. In Java, the for keyword has the syntax: for (initialization; termination;
+ * increment) {statement;}
+ * 7. The continue statement skips the rest of the current iteration of the
+ * loop, effectively jumping straight to the increment condition.
+ * 8. By contrast, the break keyword completely terminates the innermost loop
+ * when it is called.
  */
