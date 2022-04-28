@@ -38,10 +38,4 @@ public class LargeDemo {
  * 5. We call the "public static int larger (int x, int y)" as the method's
  * signature, as it lists the parameters, return types, name, and any modifiers.
  * Here our modifiers are "public" and "static".
- * 6. In Java, the for keyword has the syntax: for (initialization; termination;
- * increment) {statement;}
- * 7. The continue statement skips the rest of the current iteration of the
- * loop, effectively jumping straight to the increment condition.
- * 8. By contrast, the break keyword completely terminates the innermost loop
- * when it is called.
  */
