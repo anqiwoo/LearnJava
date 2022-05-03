@@ -17,5 +17,5 @@ public class ArgsSum {
  *      - static: The method is a static method and not associated with any particular instance.
  *      - void: The method has no return type.
  *      - main: The name of the method.
- *      - String[] args: This is a parameter that is passed to the main method. (An Array of String)
+ *      - String[] args: This is a parameter that is passed to the main method. (An Array of Strings)
  * */
