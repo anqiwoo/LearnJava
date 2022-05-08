@@ -1,6 +1,6 @@
 
 /** Demonstrate the creation of a method in Java */
-public class LargeDemo {
+class LargeDemo {
     public static int larger(int x, int y) {
         if (x > y) {
             return x;

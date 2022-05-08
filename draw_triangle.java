@@ -1,4 +1,4 @@
-public class DrawTriangle {
+class DrawTriangle {
     public static void drawTriangle(int N) {
         // print out N lines asterisk triangles
         int row = 1;

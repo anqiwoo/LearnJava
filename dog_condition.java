@@ -1,4 +1,4 @@
-public class DogCondition {
+class DogCondition {
     public static void main(String[] args) {
         int dogSize = 25;
         if (dogSize >= 50) {

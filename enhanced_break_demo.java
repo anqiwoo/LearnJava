@@ -1,4 +1,4 @@
-public class EnhancedForBreakDemo {
+class EnhancedForBreakDemo {
     public static void main(String[] args) {
         // Print out identity in an array three times and only one times for any
         // identity containing "cat"

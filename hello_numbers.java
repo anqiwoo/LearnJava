@@ -1,6 +1,6 @@
 
 /** Demonstrate Java's static typing feature */
-public class HelloNumbers {
+class helloNumbers {
     /** Print out 0-9 numbers */
     public static void main(String[] args) {
         int x = 0;

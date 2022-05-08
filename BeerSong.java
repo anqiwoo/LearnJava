@@ -1,4 +1,4 @@
-public class BearSong {
+class BearSong {
     public static void main(String[] args) {
         int beerNum = 9;
         String word = "bottles";

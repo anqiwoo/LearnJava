@@ -1,4 +1,4 @@
-public class ArrayEg {
+class ArrayEg {
     public static void main(String[] args) {
         // Cannot define dimension expressions when an array initializer is provided
         int[] a = new int[] { 1, 2, 4, 8 };

@@ -1,4 +1,4 @@
-public class BottleWhile {
+class BottleWhile {
     public static void main(String[] arg) {
         int bottle = 10;
         while (bottle > 0) {
