@@ -41,10 +41,10 @@
  * Declaring a nested class as static means that methods inside the
  * static class can not access any of the members
  * of the enclosing class. In this case, it means
- * that no method in IntNode would be able to
+ * that no method in StuffNode would be able to
  * access first, addFirst, or getFirst.
  * (This saves a bit of memory,
- * because each IntNode no longer needs to
+ * because each StuffNode no longer needs to
  * keep track of how to
  * access its enclosing SLList.)
  *
@@ -58,24 +58,24 @@
  * Invariants make it easier to reason about code,
  * and also give you specific goals to strive for in making sure your code works.
  * */
-public class SLList {
+public class SLList<purr> {
     /** Nested class example:
-     * the IntNode is really just
+     * the StuffNode is really just
      * a supporting character
      * in the story of SLList.
      *  */
-    public static class IntNode {
-        public int item;
-        public IntNode next;
+    public static class StuffNode<purr> {
+        public purr item;
+        public StuffNode next;
 
-        public IntNode(int i, IntNode n) {
+        public StuffNode(purr i, StuffNode n) {
             item = i;
             next = n;
         }
     }
 
     /* The first item (if it exists) is at sentinel.next.item. */
-    private IntNode sentinel;
+    private StuffNode sentinel;
     private int size;
 
     /** Returns an empty list.
@@ -86,41 +86,41 @@ public class SLList {
      * which we will call a sentinel node. The sentinel
      * node will hold a value, which we won't care about.)*/
     public SLList() {
-        sentinel = new IntNode(85, null);
+        sentinel = new StuffNode(85, null);
         size = 0;
     }
 
     /** Returns a list that starts from sentinel.next. */
-    public SLList(int x) {
-        sentinel = new IntNode(85, null);
-        sentinel.next = new IntNode(x, null);
+    public SLList(purr x) {
+        sentinel = new StuffNode(85, null);
+        sentinel.next = new StuffNode(x, null);
         size = 1;
     }
 
     /** Add x to the front of the list. */
-    public void addFirst(int x) {
+    public void addFirst(purr x) {
         size++;
-        sentinel.next = new IntNode(x, sentinel.next);
+        sentinel.next = new StuffNode(x, sentinel.next);
     }
 
     /** Returns the first item in the list. */
-    public int getFirst() {
+    public purr getFirst() {
         return sentinel.next.item;
     }
 
     /** Adds an item to the end of the list. */
-    public void addLast(int x) {
+    public void addLast(purr x) {
         size++;
-        IntNode p = sentinel;
+        StuffNode p = sentinel;
         while (p.next != null) {
             p = p.next;
         }
-        p.next = new IntNode(x, null);
+        p.next = new StuffNode(x, null);
     }
 
     // /** Gets the size of the list. */
     // public int size() {
-    //     IntNode p = first;
+    //     StuffNode p = first;
     //     int total = 0;
     //     while (p != null) {
     //         total++;
@@ -129,13 +129,13 @@ public class SLList {
     //     return total;
     // }
 
-    /** Returns the size of the list that starts at IntNode p.
+    /** Returns the size of the list that starts at StuffNode p.
      * ( Instead, we'll use a common pattern that
      * is used with middleman classes like SLList
      * -- we'll create a private helper method that
      * interacts with the underlying
      * naked recursive data structure.)*/
-    // private static int size(IntNode p) {
+    // private static int size(StuffNode p) {
     //     if (p.next == null) {
     //         return 1;
     //     }
@@ -155,7 +155,7 @@ public class SLList {
 
     public static void main(String[] args) {
         /* Creates a list of one integer, namely 10 */
-        SLList L = new SLList(15);
+        SLList<Integer> L = new SLList<>(15);
         L.addLast(1);
         L.addFirst(10);
         L.addFirst(5);
