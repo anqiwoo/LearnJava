@@ -1,5 +1,5 @@
-public class SLList<purr> {
-    public static class StuffNode<purr> {
+class SLList1<purr> {
+    public class StuffNode {
         public purr item;
         public StuffNode next;
 
@@ -14,7 +14,7 @@ public class SLList<purr> {
 
 
     /** Returns a list that starts from sentinel.next. */
-    public SLList(purr x) {
+    public SLList1(purr x) {
         first = new StuffNode(x, null);
         size = 1;
     }
@@ -26,9 +26,9 @@ public class SLList<purr> {
     }
 
     /** Returns the first item in the list. */
-    // public purr getFirst() {
-    //     return first.item;
-    // }
+    public purr getFirst() {
+        return first.item;
+    }
 
     /** Adds an item to the end of the list. */
     public void addLast(purr x) {
@@ -45,11 +45,16 @@ public class SLList<purr> {
     }
 
     public static void main(String[] args) {
-        SLList<Integer> L = new SLList<>(15);
+        SLList1<Integer> L = new SLList1<>(15);
         L.addLast(1);
         L.addFirst(10);
         L.addFirst(5);
-        // System.out.println(L.getFirst());
+        System.out.println(L.getFirst());
         System.out.println(L.size());
+
+        SLList1<String> SL = new SLList1<>("Hello");
+        SL.addLast("World!");
+        System.out.println(SL.getFirst());
+        System.out.println(SL.size());
     }
 }
