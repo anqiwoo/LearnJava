@@ -60,10 +60,7 @@
  * */
 public class SLList {
     /** Nested class example:
-     * the IntNode is really just
-     * a supporting character
-     * in the story of SLList.
-     *  */
+     * the IntNode is really just a supporting character in the story of SLList.*/
     public class IntNode {
         public int item;
         public IntNode next;
