@@ -62,8 +62,8 @@ public class SLList {
     /** Nested class example:
      * the IntNode is really just a supporting character in the story of SLList.*/
     public class IntNode {
-        public int item;
-        public IntNode next;
+        private int item;
+        private IntNode next;
 
         public IntNode(int i, IntNode n) {
             item = i;
