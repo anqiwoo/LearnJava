@@ -31,7 +31,7 @@ public class LinkedListDeque<T> {
         sentinel = new LinkedList(null, sentinel, sentinel);
         sentinel.next = new LinkedList(x, sentinel, sentinel);
         sentinel.prev = sentinel.next;
-        size++;
+        size = 1;
     }
 
     /* Creates a deep copy of other.
@@ -96,7 +96,7 @@ public class LinkedListDeque<T> {
         } else {
             T first =  sentinel.next.item;
             LinkedList p = sentinel.next.next;
-            sentinel.next.next.prev = sentinel;
+            p.prev = sentinel;
             sentinel.next = p;
             size--;
             return first;
@@ -111,7 +111,7 @@ public class LinkedListDeque<T> {
         } else {
             T last = sentinel.prev.item;
             LinkedList p = sentinel.prev.prev;
-            sentinel.prev.prev.next = sentinel;
+            p.next = sentinel;
             sentinel.prev = p;
             size--;
             return last;
