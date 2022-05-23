@@ -1,4 +1,4 @@
-class test {
+class oneLineTest {
     public static boolean isEmpty(int size) {
             return size == 0;
     }

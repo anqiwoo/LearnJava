@@ -1,7 +1,7 @@
 class SLList1<purr> {
-    public class StuffNode {
-        public purr item;
-        public StuffNode next;
+    private class StuffNode {
+        private purr item;
+        private StuffNode next;
 
         public StuffNode(purr i, StuffNode n) {
             item = i;

@@ -40,6 +40,14 @@ class IntList {
         return p.first;
     }
 
+    private int recursiveGetHelper(IntList p, int idx) {
+        if (idx == 0) {
+            return p.first;
+        } else {
+            return recursiveGetHelper(p.rest, idx - 1);
+        }
+    }
+
     public int recursiveGet(int i) {
         /* Return the ith item in the IntList.
             For simplicity, OK to assume the item exists.
@@ -47,7 +55,7 @@ class IntList {
         if (i == 0) {
             return first;
         } else {
-            return rest.recursiveGet(i - 1);
+            return recursiveGetHelper(rest, i - 1);
         }
     }
 
@@ -71,9 +79,10 @@ class IntList {
         /* Square the given IntList destructively.
         * (The underlying IntList passed into the methods does get modified!)
         * */
-        while (L != null) {
-            L.first = L.first * L.first;
-            L = L.rest;
+        IntList p = L;
+        while (p != null) {
+            p.first = p.first * p.first;
+            p = p.rest;
         }
     }
 
