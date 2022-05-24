@@ -115,6 +115,54 @@ public class SLList {
         p.next = new IntNode(x, null);
     }
 
+    public int getLast() {
+        IntNode p = sentinel;
+        while (p.next != null) {
+            p = p.next;
+        }
+        return p.item;
+    }
+
+    /** Inserts an integer x at the given position.
+     *   If position is after the end of the list,
+     *      insert the new node at the end. */
+    public void insert(int x, int position) {
+        if (position >= size) {
+            addLast(x);
+        } else {
+            IntNode p = sentinel;
+            while (position != 0) {
+                p = p.next;
+            }
+            p.next = new IntNode(x, p.next);
+            size++;
+        }
+    }
+
+    /** Reverses the elements destructively. */
+    public void reverse() {
+        // If we only have one or zero element, we do nothing.
+        if (size <= 1) {
+            return;
+        }
+        IntNode first = sentinel.next;
+        IntNode ptr = sentinel.next.next;
+        sentinel.next = null;
+        first.next = null;
+        // reconnect between two IntNode
+        while (ptr != null) {
+            // save the ref. to the remaining list elements
+            IntNode temp = ptr.next;
+            // redirect the current IntNode to its previous IntNode
+            ptr.next = first;
+            // move one step ahead along the original remaining list elements
+            first = ptr;
+            ptr = temp;
+        }
+        // don't forget our special sentinel!!!
+        sentinel.next = first;
+    }
+
     // /** Gets the size of the list. */
     // public int size() {
     //     IntNode p = first;
@@ -157,6 +205,10 @@ public class SLList {
         L.addFirst(10);
         L.addFirst(5);
         System.out.println(L.getFirst());
+        System.out.println(L.getLast());
         System.out.println(L.size());
+        L.reverse();
+        System.out.println(L.getFirst());
+        System.out.println(L.getLast());
     }
 }
