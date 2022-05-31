@@ -42,7 +42,7 @@
  * static class can not access any of the members
  * of the enclosing class. In this case, it means
  * that no method in IntNode would be able to
- * access first, addFirst, or getFirst.
+ * access first, addFirst, or getFirst, etc.
  * (This saves a bit of memory,
  * because each IntNode no longer needs to
  * keep track of how to
@@ -61,7 +61,7 @@
 public class SLList {
     /** Nested class example:
      * the IntNode is really just a supporting character in the story of SLList.*/
-    public class IntNode {
+    private static class IntNode {
         private int item;
         private IntNode next;
 
@@ -75,7 +75,7 @@ public class SLList {
     private IntNode sentinel;
     private int size;
 
-    /** Returns an empty list.
+    /** Returns an empfty list.
      * (A cleaner, though less obvious solution,
      * is to make it so that all SLLists are the "same",
      * even if they are empty. We can do this by
@@ -130,37 +130,60 @@ public class SLList {
         if (position >= size) {
             addLast(x);
         } else {
+            size++;
             IntNode p = sentinel;
             while (position != 0) {
                 p = p.next;
+                position--;
             }
             p.next = new IntNode(x, p.next);
-            size++;
         }
     }
 
-    /** Reverses the elements destructively. */
+    /** Reverses the elements iteratively and destructively. */
     public void reverse() {
         // If we only have one or zero element, we do nothing.
         if (size <= 1) {
             return;
         }
         IntNode first = sentinel.next;
-        IntNode ptr = sentinel.next.next;
+        IntNode second = sentinel.next.next;
         sentinel.next = null;
         first.next = null;
         // reconnect between two IntNode
-        while (ptr != null) {
+        while (second != null) {
             // save the ref. to the remaining list elements
-            IntNode temp = ptr.next;
+            IntNode third = second.next;
             // redirect the current IntNode to its previous IntNode
-            ptr.next = first;
+            second.next = first;
             // move one step ahead along the original remaining list elements
-            first = ptr;
-            ptr = temp;
+            first = second;
+            second = third;
         }
         // don't forget our special sentinel!!!
         sentinel.next = first;
+    }
+
+    /** Helper method fot reverseRec() */
+    private IntNode reverseRecHelper(IntNode first, IntNode second) {
+        if (second == null) {
+            return first;
+        } else {
+            IntNode third = second.next;
+            second.next = first;
+            return reverseRecHelper(second, third);
+        }
+    }
+    /** Reverses the elements recursively and destructively. */
+    public void reverseRec() {
+        if (size <= 1) {
+            return;
+        } else {
+            IntNode first = sentinel.next;
+            IntNode second = sentinel.next.next;
+            first.next = null;
+            sentinel.next = reverseRecHelper(first, second);
+        }
     }
 
     // /** Gets the size of the list. */
@@ -190,8 +213,8 @@ public class SLList {
 
     /** Here, we have two methods, both named size.
      * This is allowed in Java, since they
-     * have different parameters. We say that
-     * two methods with the same name
+     * have different parameters (different number of parameters, different paramter types, or both).
+     * We say that two methods with the same name
      * but different signatures are overloaded.  */
     public int size() {
         // return size(first);
@@ -208,6 +231,9 @@ public class SLList {
         System.out.println(L.getLast());
         System.out.println(L.size());
         L.reverse();
+        System.out.println(L.getFirst());
+        System.out.println(L.getLast());
+        L.reverseRec();
         System.out.println(L.getFirst());
         System.out.println(L.getLast());
     }
