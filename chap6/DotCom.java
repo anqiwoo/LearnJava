@@ -1,7 +1,7 @@
 /** The actual DotCom objects.
  * DotComs know their name, location, and
  * how to check a user guess for a match. */
-import java.util.ArrayList;
+import java.util.*;
 
 public class DotCom {
     private ArrayList<String> locationCells;
@@ -25,14 +25,14 @@ public class DotCom {
 
         if (idx >= 0) {
             locationCells.remove(idx);
-        }
 
-        if (locationCells.isEmpty()) {
-            result = "kill";
-        } else {
-            result = "hit";
+            if (locationCells.isEmpty()) {
+                result = "kill";
+                System.out.println("Ouch! You sunk " + name + " :(");
+            } else {
+                result = "hit";
+            }
         }
-
         return result;
     }
 }
