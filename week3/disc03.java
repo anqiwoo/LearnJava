@@ -14,12 +14,17 @@ class disc03 {
         // return result;
 
         /* Solution 2 */
+        // create a new array with one more size
         int[] result = new int[arr.length + 1];
+        // make sure that the insert position is less than or equal to the original array's length
         position = Math.min(position, arr.length);
+        // copy elements before the insert position
         for (int i = 0; i < position; i++) {
             result[i] = arr[i];
         }
+        // insert the item at the insert position
         result[position] = item;
+        // copy elements after the insert position
         for (int i = position; i < arr.length; i++) {
             result[i + 1] = arr[i];
         }
@@ -38,8 +43,11 @@ class disc03 {
         // }
 
         /* Solution 2 */
-        for (int i = 0; i < arr.length; i++) {
+        // flip elements before the center position of the array
+        for (int i = 0; i < arr.length/2; i++) {
+            // calculate the symmetric pair with regard to the center position of the array
             int j = arr.length - 1 - i;
+            // flip the symmetric pair (we don't need to flip the center position)
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
@@ -49,7 +57,7 @@ class disc03 {
     /** Replaces the number at index i with arr[i] copies of itself non-destructively.
      *  For this question assume that all elements of the array are positive. */
     public static int[] replicate(int[] arr) {
-        // get the sum of the all elements in the arr
+        // get the sum of all elements in the arr as the new size of the result arry
         int new_size = 0;
         for (int item : arr) {
             new_size += item;
@@ -70,7 +78,7 @@ class disc03 {
 
     public static void main(String[] args) {
         // test insert()
-        int[] arr = new int[]{1, 2};
+        int[] arr = new int[]{1, 2, 4};
         int[] result = insert(arr, 3, 0);
         for (int i : result) {
             System.out.println(i);
